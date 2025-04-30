@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now - DNA Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #bfdbfe;
+        }
+        .nav-link.active {
+            font-weight: 600;
+        }
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+        }
+        .nav-link-mobile {
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+        .nav-link-mobile:hover {
+            color: #bfdbfe;
+            padding-left: 8px;
+        }
+        .nav-link-mobile.active {
+            font-weight: 600;
+            border-left: 3px solid white;
+            padding-left: 8px;
+        }
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        .service-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        .modal-animate {
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .progress-steps {
+            counter-reset: step;
+        }
+        .progress-step:before {
+            counter-increment: step;
+            content: counter(step);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: #1d4ed8;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .progress-step.active:before {
+            background-color: #1e40af;
+        }
+        .progress-step.completed:before {
+            background-color: #10b981;
+            content: "✓";
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-blue-700 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="images/logo.png" alt="DNA Academy Logo" class="h-10">
+                <span class="text-xl font-bold">DNA Academy</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="library.html" class="nav-link">Library</a>
+                <a href="apply.html" class="nav-link active">Apply Now</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-800">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="nav-link-mobile">Home</a>
+                <a href="courses.html" class="nav-link-mobile">Courses</a>
+                <a href="library.html" class="nav-link-mobile">Library</a>
+                <a href="apply.html" class="nav-link-mobile active">Apply Now</a>
+                <a href="contact.html" class="nav-link-mobile">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Multi-step Progress Bar -->
+    <div class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center progress-steps">
+                <div class="flex items-center progress-step active">
+                    <span class="hidden sm:inline">Personal Info</span>
+                </div>
+                <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
+                <div class="flex items-center progress-step">
+                    <span class="hidden sm:inline">Education</span>
+                </div>
+                <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
+                <div class="flex items-center progress-step">
+                    <span class="hidden sm:inline">Review</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admission Form Section -->
+    <section class="py-8 md:py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <!-- Form Side -->
+                    <div class="md:w-2/3 p-6 md:p-8">
+                        <h2 class="text-2xl font-bold text-blue-700 mb-2">Admission Application</h2>
+                        <p class="text-gray-600 mb-6">Fill out the form below to start your journey with DNA Academy</p>
+                        
+                        <form id="admissionForm" class="space-y-6">
+                            <!-- Service Selection -->
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-3">Select Service*</label>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <label class="flex items-center space-x-3 bg-gray-100 p-4 rounded-lg cursor-pointer transition service-option">
+                                        <input type="radio" name="service" value="coaching" class="h-5 w-5 text-blue-600" checked>
+                                        <div>
+                                            <span class="font-medium">Coaching Classes</span>
+                                            <p class="text-sm text-gray-600 mt-1">Comprehensive coaching for NEET/JEE</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center space-x-3 bg-gray-100 p-4 rounded-lg cursor-pointer transition service-option">
+                                        <input type="radio" name="service" value="library" class="h-5 w-5 text-blue-600">
+                                        <div>
+                                            <span class="font-medium">Library Membership</span>
+                                            <p class="text-sm text-gray-600 mt-1">Access to premium study materials</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Student Information -->
+                            <div class="mb-6">
+                                <h3 class="text-lg font-semibold text-blue-700 mb-4 flex items-center">
+                                    <i class="fas fa-user-graduate mr-2"></i>
+                                    <span>Student Information</span>
+                                </h3>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="mb-4">
+                                        <label for="fullName" class="block text-gray-700 mb-2">Full Name*</label>
+                                        <input type="text" id="fullName" name="fullName" required 
+                                               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="email" class="block text-gray-700 mb-2">Email*</label>
+                                        <input type="email" id="email" name="email" required 
+                                               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="mb-4">
+                                        <label for="phone" class="block text-gray-700 mb-2">Phone Number*</label>
+                                        <div class="relative">
+                                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                                <span class="text-gray-500">+91</span>
+                                            </div>
+                                            <input type="tel" id="phone" name="phone" required 
+                                                   class="w-full pl-12 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input"
+                                                   pattern="[0-9]{10}" maxlength="10">
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="whatsapp" class="block text-gray-700 mb-2">WhatsApp Number*</label>
+                                        <div class="relative">
+                                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                                <span class="text-gray-500">+91</span>
+                                            </div>
+                                            <input type="tel" id="whatsapp" name="whatsapp" required 
+                                                   class="w-full pl-12 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input"
+                                                   pattern="[0-9]{10}" maxlength="10">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="mb-4">
+                                        <label for="class" class="block text-gray-700 mb-2">Class*</label>
+                                        <select id="class" name="class" required 
+                                                class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
+                                            <option value="">Select Class</option>
+                                            <option value="11">Class 11</option>
+                                            <option value="12">Class 12</option>
+                                            <option value="neet">NEET Repeater</option>
+                                            <option value="jee">JEE Repeater</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="school" class="block text-gray-700 mb-2">Current School/College*</label>
+                                        <input type="text" id="school" name="school" required 
+                                               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Parent Information -->
+                            <div class="mb-6">
+                                <h3 class="text-lg font-semibold text-blue-700 mb-4 flex items-center">
+                                    <i class="fas fa-users mr-2"></i>
+                                    <span>Parent Information</span>
+                                </h3>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="mb-4">
+                                        <label for="parentName" class="block text-gray-700 mb-2">Parent Name*</label>
+                                        <input type="text" id="parentName" name="parentName" required 
+                                               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="parentPhone" class="block text-gray-700 mb-2">Parent Phone*</label>
+                                        <div class="relative">
+                                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                                <span class="text-gray-500">+91</span>
+                                            </div>
+                                            <input type="tel" id="parentPhone" name="parentPhone" required 
+                                                   class="w-full pl-12 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input"
+                                                   pattern="[0-9]{10}" maxlength="10">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="address" class="block text-gray-700 mb-2">Address*</label>
+                                    <textarea id="address" name="address" rows="3" required 
+                                              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Additional Information -->
+                            <div class="mb-6">
+                                <h3 class="text-lg font-semibold text-blue-700 mb-4 flex items-center">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    <span>Additional Information</span>
+                                </h3>
+                                <div class="mb-4">
+                                    <label for="reference" class="block text-gray-700 mb-2">How did you hear about us?</label>
+                                    <select id="reference" name="reference" 
+                                            class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
+                                        <option value="">Select an option</option>
+                                        <option value="friend">Friend/Family</option>
+                                        <option value="social">Social Media</option>
+                                        <option value="newspaper">Newspaper</option>
+                                        <option value="hoarding">Hoarding/Poster</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="block text-gray-700 mb-2">Any specific requirements?</label>
+                                    <textarea id="message" name="message" rows="2" 
+                                              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="mb-6">
+                                <label class="flex items-start">
+                                    <input type="checkbox" name="terms" required 
+                                           class="mt-1 mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <span class="text-gray-700">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms and Conditions</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a> of DNA Academy*</span>
+                                </label>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                <button type="submit" class="flex-1 bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-800 transition duration-300 font-semibold flex items-center justify-center">
+                                    <i class="fas fa-paper-plane mr-2"></i>
+                                    Submit Application
+                                </button>
+                                <button type="reset" class="flex-1 bg-gray-200 text-gray-800 py-3 px-6 rounded hover:bg-gray-300 transition duration-300 font-medium">
+                                    <i class="fas fa-redo mr-2"></i>
+                                    Reset Form
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Info Side -->
+                    <div class="md:w-1/3 bg-gradient-to-b from-blue-700 to-blue-800 text-white p-6 md:p-8">
+                        <div class="sticky top-20">
+                            <h3 class="text-xl font-bold mb-4 flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                <span>Admission Process</span>
+                            </h3>
+                            <ol class="space-y-4 mb-6">
+                                <li class="flex items-start">
+                                    <span class="bg-white text-blue-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                                    <span>Fill this application form completely</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-white text-blue-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                                    <span>Our team will contact you within 24 hours</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-white text-blue-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                                    <span>Complete admission formalities</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-white text-blue-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
+                                    <span>Begin your classes/library membership</span>
+                                </li>
+                            </ol>
+
+                            <div class="bg-blue-900 bg-opacity-50 p-4 rounded-lg border border-blue-800 mb-6">
+                                <h4 class="font-semibold mb-2 flex items-center">
+                                    <i class="fas fa-question-circle mr-2"></i>
+                                    <span>Need Help?</span>
+                                </h4>
+                                <p class="mb-3 text-blue-100">Contact our admission counselor:</p>
+                                <div class="space-y-2">
+                                    <a href="tel:7709997951" class="flex items-center hover:text-blue-200 transition">
+                                        <i class="fas fa-phone-alt mr-2"></i>
+                                        <span>7709997951</span>
+                                    </a>
+                                    <a href="https://wa.me/917038980244" target="_blank" class="flex items-center hover:text-blue-200 transition">
+                                        <i class="fab fa-whatsapp mr-2"></i>
+                                        <span>7038980244</span>
+                                    </a>
+                                    <a href="mailto:admissions@dnaacademy.com" class="flex items-center hover:text-blue-200 transition">
+                                        <i class="fas fa-envelope mr-2"></i>
+                                        <span>admissions@dnaacademy.com</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="mt-6">
+                                <h4 class="font-semibold mb-2 flex items-center">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>
+                                    <span>Office Address</span>
+                                </h4>
+                                <p class="text-blue-100">No. 6, Bharat Nagar, Nagpure Vidyalaya Sq., Bharatwada Road, Nagpur</p>
+                                <div class="mt-3">
+                                    <a href="https://maps.google.com" target="_blank" class="inline-flex items-center text-blue-200 hover:text-white transition">
+                                        <i class="fas fa-directions mr-2"></i>
+                                        <span>Get Directions</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/917038980244" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Confirmation Modal (Hidden by default) -->
+    <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4 modal-animate">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Application Submitted!</h3>
+                <p class="text-gray-600 mb-4">Thank you for applying to DNA Academy. Our team will contact you shortly.</p>
+                <p class="text-sm text-gray-500 mb-6">You will receive a confirmation email with next steps.</p>
+                <button onclick="closeModal()" class="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition flex items-center mx-auto">
+                    <i class="fas fa-times mr-2"></i>
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">DNA Academy</h3>
+                    <p class="text-gray-400">Providing quality education for NEET and JEE aspirants since 2010.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="courses.html" class="text-gray-400 hover:text-white transition">Courses</a></li>
+                        <li><a href="library.html" class="text-gray-400 hover:text-white transition">Library</a></li>
+                        <li><a href="apply.html" class="text-gray-400 hover:text-white transition">Admissions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Bharat Nagar, Nagpur</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>7709997951</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@dnaacademy.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-500">Subscribe to our newsletter</p>
+                        <div class="flex mt-2">
+                            <input type="email" placeholder="Your email" class="px-3 py-2 bg-gray-700 text-white rounded-l focus:outline-none w-full">
+                            <button class="bg-blue-700 text-white px-4 py-2 rounded-r hover:bg-blue-800 transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 DNA Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form Submission Handling
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate phone numbers
+            const phone = document.getElementById('phone').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const parentPhone = document.getElementById('parentPhone').value;
+            
+            if (!/^\d{10}$/.test(phone)) {
+                alert('Please enter a valid 10-digit phone number');
+                return;
+            }
+            
+            if (!/^\d{10}$/.test(whatsapp)) {
+                alert('Please enter a valid 10-digit WhatsApp number');
+                return;
+            }
+            
+            if (!/^\d{10}$/.test(parentPhone)) {
+                alert('Please enter a valid 10-digit parent phone number');
+                return;
+            }
+            
+            // Show confirmation modal
+            document.getElementById('confirmationModal').classList.remove('hidden');
+            
+            // Disable scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+            
+            // You can add AJAX form submission here if needed
+            // For example:
+            // const formData = new FormData(this);
+            // fetch('submit.php', { method: 'POST', body: formData })
+            //   .then(response => response.json())
+            //   .then(data => {
+            //       document.getElementById('confirmationModal').classList.remove('hidden');
+            //   });
+        });
+        
+        function closeModal() {
+            document.getElementById('confirmationModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Input formatting for phone numbers
+        const phoneInputs = document.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                this.value = this.value.replace(/\D/g, '').slice(0, 10);
+            });
+        });
+
+        // Service option selection effect
+        const serviceOptions = document.querySelectorAll('.service-option');
+        serviceOptions.forEach(option => {
+            const radio = option.querySelector('input[type="radio"]');
+            option.addEventListener('click', () => {
+                serviceOptions.forEach(opt => {
+                    opt.classList.remove('bg-blue-100', 'border-blue-300');
+                    opt.classList.add('bg-gray-100');
+                });
+                option.classList.remove('bg-gray-100');
+                option.classList.add('bg-blue-100', 'border-blue-300', 'border');
+                radio.checked = true;
+            });
+        });
+    </script>
+</body>
+</html>
