@@ -8,7 +8,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Custom styles */
         .nav-link {
             position: relative;
             padding-bottom: 4px;
@@ -117,6 +116,13 @@
                 font-size: 25px;
             }
         }
+        .fee-card {
+            transition: all 0.3s ease;
+        }
+        .fee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="font-poppins bg-gray-50 text-gray-800">
@@ -152,25 +158,6 @@
         </div>
     </nav>
 
-    <!-- Multi-step Progress Bar -->
-    <div class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center progress-steps">
-                <div class="flex items-center progress-step active">
-                    <span class="hidden sm:inline">Personal Info</span>
-                </div>
-                <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
-                <div class="flex items-center progress-step">
-                    <span class="hidden sm:inline">Education</span>
-                </div>
-                <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
-                <div class="flex items-center progress-step">
-                    <span class="hidden sm:inline">Review</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Admission Form Section -->
     <section class="py-8 md:py-12">
         <div class="container mx-auto px-4">
@@ -187,14 +174,7 @@
                                 <label class="block text-gray-700 font-medium mb-3">Select Service*</label>
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <label class="flex items-center space-x-3 bg-gray-100 p-4 rounded-lg cursor-pointer transition service-option">
-                                        <input type="radio" name="service" value="coaching" class="h-5 w-5 text-blue-600" checked>
-                                        <div>
-                                            <span class="font-medium">Coaching Classes</span>
-                                            <p class="text-sm text-gray-600 mt-1">Comprehensive coaching for NEET/JEE</p>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-center space-x-3 bg-gray-100 p-4 rounded-lg cursor-pointer transition service-option">
-                                        <input type="radio" name="service" value="library" class="h-5 w-5 text-blue-600">
+                                        <input type="radio" name="service" value="library" class="h-5 w-5 text-blue-600" checked>
                                         <div>
                                             <span class="font-medium">Library Membership</span>
                                             <p class="text-sm text-gray-600 mt-1">Access to premium study materials</p>
@@ -245,79 +225,70 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="grid md:grid-cols-2 gap-4">
-                                    <div class="mb-4">
-                                        <label for="class" class="block text-gray-700 mb-2">Class*</label>
-                                        <select id="class" name="class" required 
-                                                class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
-                                            <option value="">Select Class</option>
-                                            <option value="11">Class 11</option>
-                                            <option value="12">Class 12</option>
-                                            <option value="neet">NEET Repeater</option>
-                                            <option value="jee">JEE Repeater</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="school" class="block text-gray-700 mb-2">Current School/College*</label>
-                                        <input type="text" id="school" name="school" required 
-                                               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
-                                    </div>
-                                </div>
                             </div>
 
-                            <!-- Parent Information -->
-                            <div class="mb-6">
+                            <!-- Library Membership Details -->
+                            <div id="libraryFields" class="mb-6">
                                 <h3 class="text-lg font-semibold text-blue-700 mb-4 flex items-center">
-                                    <i class="fas fa-users mr-2"></i>
-                                    <span>Parent Information</span>
-                                </h3>
-                                <div class="grid md:grid-cols-2 gap-4">
-                                    <div class="mb-4">
-                                        <label for="parentName" class="block text-gray-700 mb-2">Parent Name*</label>
-                                        <input type="text" id="parentName" name="parentName" required 
-                                               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="parentPhone" class="block text-gray-700 mb-2">Parent Phone*</label>
-                                        <div class="relative">
-                                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                                <span class="text-gray-500">+91</span>
-                                            </div>
-                                            <input type="tel" id="parentPhone" name="parentPhone" required 
-                                                   class="w-full pl-12 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input"
-                                                   pattern="[0-9]{10}" maxlength="10">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label for="address" class="block text-gray-700 mb-2">Address*</label>
-                                    <textarea id="address" name="address" rows="3" required 
-                                              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input"></textarea>
-                                </div>
-                            </div>
-
-                            <!-- Additional Information -->
-                            <div class="mb-6">
-                                <h3 class="text-lg font-semibold text-blue-700 mb-4 flex items-center">
-                                    <i class="fas fa-info-circle mr-2"></i>
-                                    <span>Additional Information</span>
+                                    <i class="fas fa-book-reader mr-2"></i>
+                                    <span>Library Membership Details</span>
                                 </h3>
                                 <div class="mb-4">
-                                    <label for="reference" class="block text-gray-700 mb-2">How did you hear about us?</label>
-                                    <select id="reference" name="reference" 
+                                    <label for="examPreparing" class="block text-gray-700 mb-2">Exam Preparing For*</label>
+                                    <select id="examPreparing" name="examPreparing" required 
                                             class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input">
-                                        <option value="">Select an option</option>
-                                        <option value="friend">Friend/Family</option>
-                                        <option value="social">Social Media</option>
-                                        <option value="newspaper">Newspaper</option>
-                                        <option value="hoarding">Hoarding/Poster</option>
+                                        <option value="">Select Exam</option>
+                                        <option value="neet">NEET</option>
+                                        <option value="jee">JEE</option>
+                                        <option value="both">Both NEET & JEE</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="message" class="block text-gray-700 mb-2">Any specific requirements?</label>
-                                    <textarea id="message" name="message" rows="2" 
-                                              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 form-input"></textarea>
+                                    <label for="membershipPlan" class="block text-gray-700 mb-2">Membership Plan*</label>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <label class="flex flex-col bg-white border border-gray-200 rounded-lg p-4 cursor-pointer fee-card">
+                                            <div class="flex items-center mb-2">
+                                                <input type="radio" name="membershipPlan" value="1month" class="h-5 w-5 text-blue-600">
+                                                <span class="ml-2 font-medium">1 Month</span>
+                                            </div>
+                                            <div class="text-sm text-gray-600">
+                                                <p>Access to all materials</p>
+                                                <p class="font-bold text-blue-700 mt-1">₹800/month</p>
+                                            </div>
+                                        </label>
+                                        <label class="flex flex-col bg-white border border-gray-200 rounded-lg p-4 cursor-pointer fee-card">
+                                            <div class="flex items-center mb-2">
+                                                <input type="radio" name="membershipPlan" value="3months" class="h-5 w-5 text-blue-600">
+                                                <span class="ml-2 font-medium">3 Months</span>
+                                            </div>
+                                            <div class="text-sm text-gray-600">
+                                                <p>Access to all materials</p>
+                                                <p class="font-bold text-blue-700 mt-1">₹2000 (Save ₹400)</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="studySubjects" class="block text-gray-700 mb-2">Subjects of Interest*</label>
+                                    <div class="grid md:grid-cols-3 gap-2">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" name="studySubjects" value="physics" class="h-4 w-4 text-blue-600">
+                                            <span class="ml-2">Physics</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" name="studySubjects" value="chemistry" class="h-4 w-4 text-blue-600">
+                                            <span class="ml-2">Chemistry</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" name="studySubjects" value="biology" class="h-4 w-4 text-blue-600">
+                                            <span class="ml-2">Biology</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" name="studySubjects" value="mathematics" class="h-4 w-4 text-blue-600">
+                                            <span class="ml-2">Mathematics</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
 
@@ -349,33 +320,54 @@
                         <div class="sticky top-20">
                             <h3 class="text-xl font-bold mb-4 flex items-center">
                                 <i class="fas fa-info-circle mr-2"></i>
-                                <span>Admission Process</span>
+                                <span>Library Membership Benefits</span>
                             </h3>
                             <ol class="space-y-4 mb-6">
                                 <li class="flex items-start">
                                     <span class="bg-white text-blue-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
-                                    <span>Fill this application form completely</span>
+                                    <span>Access to 5000+ reference books</span>
                                 </li>
                                 <li class="flex items-start">
                                     <span class="bg-white text-blue-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
-                                    <span>Our team will contact you within 24 hours</span>
+                                    <span>Previous 10 years question papers</span>
                                 </li>
                                 <li class="flex items-start">
                                     <span class="bg-white text-blue-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
-                                    <span>Complete admission formalities</span>
+                                    <span>Daily 8AM to 8PM access</span>
                                 </li>
                                 <li class="flex items-start">
                                     <span class="bg-white text-blue-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
-                                    <span>Begin your classes/library membership</span>
+                                    <span>Dedicated study space with AC</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-white text-blue-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
+                                    <span>Expert guidance available</span>
                                 </li>
                             </ol>
+
+                            <div class="bg-blue-900 bg-opacity-50 p-4 rounded-lg border border-blue-800 mb-6">
+                                <h4 class="font-semibold mb-2">Membership Fees</h4>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span>1 Month Membership:</span>
+                                        <span class="font-bold">₹800</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>3 Months Membership:</span>
+                                        <span class="font-bold">₹2000 (Save ₹400)</span>
+                                    </div>
+                                    <div class="pt-2 mt-2 border-t border-blue-800">
+                                        <p class="text-sm text-blue-200">Payment to be made in cash at the library</p>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="bg-blue-900 bg-opacity-50 p-4 rounded-lg border border-blue-800 mb-6">
                                 <h4 class="font-semibold mb-2 flex items-center">
                                     <i class="fas fa-question-circle mr-2"></i>
                                     <span>Need Help?</span>
                                 </h4>
-                                <p class="mb-3 text-blue-100">Contact our admission counselor:</p>
+                                <p class="mb-3 text-blue-100">Contact our library manager:</p>
                                 <div class="space-y-2">
                                     <a href="tel:7709997951" class="flex items-center hover:text-blue-200 transition">
                                         <i class="fas fa-phone-alt mr-2"></i>
@@ -385,25 +377,16 @@
                                         <i class="fab fa-whatsapp mr-2"></i>
                                         <span>7038980244</span>
                                     </a>
-                                    <a href="mailto:admissions@dnaacademy.com" class="flex items-center hover:text-blue-200 transition">
-                                        <i class="fas fa-envelope mr-2"></i>
-                                        <span>admissions@dnaacademy.com</span>
-                                    </a>
                                 </div>
                             </div>
 
                             <div class="mt-6">
                                 <h4 class="font-semibold mb-2 flex items-center">
                                     <i class="fas fa-map-marker-alt mr-2"></i>
-                                    <span>Office Address</span>
+                                    <span>Library Address</span>
                                 </h4>
                                 <p class="text-blue-100">No. 6, Bharat Nagar, Nagpure Vidyalaya Sq., Bharatwada Road, Nagpur</p>
-                                <div class="mt-3">
-                                    <a href="https://maps.google.com" target="_blank" class="inline-flex items-center text-blue-200 hover:text-white transition">
-                                        <i class="fas fa-directions mr-2"></i>
-                                        <span>Get Directions</span>
-                                    </a>
-                                </div>
+                                <p class="text-sm text-blue-200 mt-2">Timings: 8:00 AM to 8:00 PM (Daily)</p>
                             </div>
                         </div>
                     </div>
@@ -425,8 +408,15 @@
                     <i class="fas fa-check text-green-600 text-2xl"></i>
                 </div>
                 <h3 class="text-xl font-bold text-gray-800 mb-2">Application Submitted!</h3>
-                <p class="text-gray-600 mb-4">Thank you for applying to DNA Academy. Our team will contact you shortly.</p>
-                <p class="text-sm text-gray-500 mb-6">You will receive a confirmation email with next steps.</p>
+                <p class="text-gray-600 mb-4">Thank you for applying for DNA Academy Library Membership.</p>
+                <div class="bg-gray-100 p-4 rounded-lg mb-4 text-left">
+                    <h4 class="font-semibold mb-2">Next Steps:</h4>
+                    <ol class="list-decimal list-inside space-y-1 text-sm">
+                        <li>Visit our library with your ID proof</li>
+                        <li>Pay the membership fee</li>
+                        <li>Get your membership card</li>
+                    </ol>
+                </div>
                 <button onclick="closeModal()" class="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition flex items-center mx-auto">
                     <i class="fas fa-times mr-2"></i>
                     Close
@@ -440,8 +430,8 @@
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">DNA Academy</h3>
-                    <p class="text-gray-400">Providing quality education for NEET and JEE aspirants since 2010.</p>
+                    <h3 class="text-lg font-semibold mb-4">DNA Academy Library</h3>
+                    <p class="text-gray-400">Providing quality study materials for NEET and JEE aspirants since 2010.</p>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
@@ -449,7 +439,7 @@
                         <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
                         <li><a href="courses.html" class="text-gray-400 hover:text-white transition">Courses</a></li>
                         <li><a href="library.html" class="text-gray-400 hover:text-white transition">Library</a></li>
-                        <li><a href="apply.html" class="text-gray-400 hover:text-white transition">Admissions</a></li>
+                        <li><a href="apply.html" class="text-gray-400 hover:text-white transition">Membership</a></li>
                     </ul>
                 </div>
                 <div>
@@ -465,39 +455,26 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-2"></i>
-                            <span>info@dnaacademy.com</span>
+                            <span>library@dnaacademy.com</span>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                    <div class="mt-4">
-                        <p class="text-sm text-gray-500">Subscribe to our newsletter</p>
-                        <div class="flex mt-2">
-                            <input type="email" placeholder="Your email" class="px-3 py-2 bg-gray-700 text-white rounded-l focus:outline-none w-full">
-                            <button class="bg-blue-700 text-white px-4 py-2 rounded-r hover:bg-blue-800 transition">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <h3 class="text-lg font-semibold mb-4">Library Hours</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Monday-Friday:</span>
+                            <span>8AM-8PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday-Sunday:</span>
+                            <span>8AM-8PM</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
-                <p>&copy; 2023 DNA Academy. All rights reserved.</p>
+                <p>&copy; 2023 DNA Academy Library. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -516,7 +493,6 @@
             // Validate phone numbers
             const phone = document.getElementById('phone').value;
             const whatsapp = document.getElementById('whatsapp').value;
-            const parentPhone = document.getElementById('parentPhone').value;
             
             if (!/^\d{10}$/.test(phone)) {
                 alert('Please enter a valid 10-digit phone number');
@@ -528,25 +504,23 @@
                 return;
             }
             
-            if (!/^\d{10}$/.test(parentPhone)) {
-                alert('Please enter a valid 10-digit parent phone number');
+            // Check if at least one subject is selected
+            const subjects = document.querySelectorAll('input[name="studySubjects"]:checked');
+            if (subjects.length === 0) {
+                alert('Please select at least one subject of interest');
+                return;
+            }
+            
+            // Check if membership plan is selected
+            const membershipPlan = document.querySelector('input[name="membershipPlan"]:checked');
+            if (!membershipPlan) {
+                alert('Please select a membership plan');
                 return;
             }
             
             // Show confirmation modal
             document.getElementById('confirmationModal').classList.remove('hidden');
-            
-            // Disable scrolling when modal is open
             document.body.style.overflow = 'hidden';
-            
-            // You can add AJAX form submission here if needed
-            // For example:
-            // const formData = new FormData(this);
-            // fetch('submit.php', { method: 'POST', body: formData })
-            //   .then(response => response.json())
-            //   .then(data => {
-            //       document.getElementById('confirmationModal').classList.remove('hidden');
-            //   });
         });
         
         function closeModal() {
@@ -562,18 +536,14 @@
             });
         });
 
-        // Service option selection effect
-        const serviceOptions = document.querySelectorAll('.service-option');
-        serviceOptions.forEach(option => {
-            const radio = option.querySelector('input[type="radio"]');
-            option.addEventListener('click', () => {
-                serviceOptions.forEach(opt => {
-                    opt.classList.remove('bg-blue-100', 'border-blue-300');
-                    opt.classList.add('bg-gray-100');
-                });
-                option.classList.remove('bg-gray-100');
-                option.classList.add('bg-blue-100', 'border-blue-300', 'border');
+        // Membership plan selection effect
+        const feeCards = document.querySelectorAll('.fee-card');
+        feeCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
                 radio.checked = true;
+                feeCards.forEach(c => c.classList.remove('border-blue-500', 'bg-blue-50'));
+                this.classList.add('border-blue-500', 'bg-blue-50');
             });
         });
     </script>
