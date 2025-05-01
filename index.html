@@ -3,377 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNA Academy - Where Science Meets Success</title>
-    <meta name="description" content="Premium coaching for NEET, JEE, and Class 11-12 Science in Nagpur">
+    <title>DNA Academy - Premier Coaching Institute in Nagpur</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            display: block;
+            line-height: 1.2;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e40af;
+            font-size: 2rem;
+        }
+        
+        /* Facilities */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .facility-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .facility-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .facility-content {
+            padding: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-<body class="font-poppins bg-white text-gray-800">
-    <!-- Navigation -->
-    <nav class="bg-blue-700 text-white sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="images/logo.png" alt="DNA Academy Logo" class="h-10">
-                <span class="text-xl font-bold">DNA Academy</span>
-            </a>
-         <div class="hidden md:flex space-x-8">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="courses.html" class="nav-link">Courses</a>
-    <a href="library.html" class="nav-link">Library</a>
-    <a href="apply.html" class="nav-link">Apply Now</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-</div> 
-        <div class="hidden md:flex space-x-8">
-            <!-- Navigation links will be here -->
-        </div>
-    </div>
-</nav>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="DNA Academy Logo">
+                <div class="logo-text">
+                    <span>DNA</span>
+                    <span>ACADEMY</span>
+                </div>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <!-- Mobile Menu -->
-       <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden bg-blue-800">
-    <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
-        <a href="index.html" class="nav-link-mobile">Home</a>
-        <a href="courses.html" class="nav-link-mobile">Courses</a>
-        <a href="library.html" class="nav-link-mobile">Library</a>
-        <a href="apply.html" class="nav-link-mobile">Apply Now</a>
-        <a href="contact.html" class="nav-link-mobile">Contact</a>
-    </div>
-</div>
-        </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">DNA Academy & Reading Library</h1>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Advanced NEET UG Coaching Institute in Nagpur</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="tel:7709997951" class="bg-white text-blue-700 font-semibold px-6 py-3 rounded-full hover:bg-blue-50 transition duration-300 flex items-center justify-center">
-                    <i class="fas fa-phone-alt mr-2"></i> Call Now
-                </a>
-                <a href="#admission" class="bg-blue-900 text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-800 transition duration-300">
-                    Enroll Now
-                </a>
-            </div>
+    <!-- Hero Section with Building Image -->
+    <section class="hero">
+        <img src="images/building.jpg" alt="DNA Academy Building" class="hero-image">
+        <div class="hero-content container">
+            <h1>Where Science Meets Success</h1>
+            <p>Premier coaching institute for NEET, JEE and Class 11-12 Science in Nagpur</p>
         </div>
     </section>
 
-    <!-- Building Info -->
-    <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-4xl mx-auto">
-                <div class="md:flex">
-                    <div class="md:w-1/2 p-6 md:p-8">
-                        <h2 class="text-2xl font-bold text-blue-700 mb-4">Our Building Facilities</h2>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1">1</span>
-                                <div>
-                                    <h3 class="font-semibold">Library - 1st Floor</h3>
-                                    <p class="text-gray-600 text-sm">Peaceful study environment with premium facilities</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1">2</span>
-                                <div>
-                                    <h3 class="font-semibold">Classes - 2nd Floor</h3>
-                                    <p class="text-gray-600 text-sm">NEET, JEE & Board exam coaching</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1">3</span>
-                                <div>
-                                    <h3 class="font-semibold">Office - 3rd Floor</h3>
-                                    <p class="text-gray-600 text-sm">Timing: 8AM-12PM & 4PM-8PM</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="md:w-1/2">
-                        <img src="images/building.jpg" alt="DNA Academy Building" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Courses Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-blue-700">Our Programs</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Class 11 -->
-                <div class="feature-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-t-4 border-blue-600">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-atom text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Class 11 Science</h3>
-                    <p class="text-gray-600 mb-4">Comprehensive coaching for Maharashtra State Board</p>
-                    <ul class="text-sm space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            Physics, Chemistry, Biology
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            Mathematics optional
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Class 12 -->
-                <div class="feature-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-t-4 border-blue-600">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-flask text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Class 12 Science</h3>
-                    <p class="text-gray-600 mb-4">Board exam preparation with competitive exam integration</p>
-                    <ul class="text-sm space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            Complete syllabus coverage
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            Regular mock tests
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- NEET -->
-                <div class="feature-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-t-4 border-blue-600">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-medkit text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">NEET Coaching</h3>
-                    <p class="text-gray-600 mb-4">Special batches for regular and repeaters</p>
-                    <ul class="text-sm space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            Regular + Repeaters batch
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            NCERT focused training
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Batch Notice -->
-    <section class="py-12 bg-blue-700 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">New Batches Starting Soon!</h2>
-            <p class="text-xl mb-6">Limited seats available for 2023-24 academic year</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="admission.html" class="bg-white text-blue-700 font-semibold px-8 py-3 rounded-full hover:bg-blue-50 transition duration-300 inline-block">Apply Now</a>
-                <a href="tel:7038980244" class="bg-blue-900 text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-800 transition duration-300 inline-block flex items-center justify-center">
-                    <i class="fas fa-phone-alt mr-2"></i> Call for Inquiry
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-blue-700">What Our Students Say</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mr-4">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Rahul Sharma</h4>
-                            <p class="text-sm text-gray-500">NEET Aspirant</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700">"The faculty's teaching methods made complex biology concepts easy to understand. My NEET score improved by 120 marks!"</p>
-                    <div class="mt-3 flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+    <!-- Facilities Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Facilities</h2>
+            <div class="facilities-grid">
+                <!-- Facility 1 -->
+                <div class="facility-card">
+                    <img src="images/classroom.jpg" alt="Modern Classroom" class="facility-img">
+                    <div class="facility-content">
+                        <h3>Modern Classrooms</h3>
+                        <p>Air-conditioned classrooms with digital learning tools and comfortable seating.</p>
                     </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mr-4">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Priya Deshmukh</h4>
-                            <p class="text-sm text-gray-500">Class 12 Student</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700">"The library environment is perfect for focused study. AC, charging points and comfortable seating make long hours easy."</p>
-                    <div class="mt-3 flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                <!-- Facility 2 -->
+                <div class="facility-card">
+                    <img src="images/library.jpg" alt="Study Library" class="facility-img">
+                    <div class="facility-content">
+                        <h3>Study Library</h3>
+                        <p>Quiet study environment with reference books and high-speed internet.</p>
                     </div>
                 </div>
                 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mr-4">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Mrs. Gupta</h4>
-                            <p class="text-sm text-gray-500">Parent</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700">"My daughter's performance improved dramatically after joining. The teachers provide individual attention to each student."</p>
-                    <div class="mt-3 flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                <!-- Facility 3 -->
+                <div class="facility-card">
+                    <img src="images/lab.jpg" alt="Science Lab" class="facility-img">
+                    <div class="facility-content">
+                        <h3>Science Labs</h3>
+                        <p>Well-equipped laboratories for practical learning in Physics, Chemistry and Biology.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Admission CTA -->
-    <section id="admission" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg shadow-lg overflow-hidden">
-                <div class="md:flex">
-                    <div class="md:w-1/2 p-8 md:p-12 flex items-center">
-                        <div>
-                            <h2 class="text-3xl font-bold mb-4">Begin Your Success Journey</h2>
-                            <p class="mb-6">Join Maharashtra's leading coaching institute for NEET, JEE and Board exams</p>
-                            <div class="space-y-3">
-                                <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt mr-3"></i>
-                                    <span>No. 6, Bharat Nagar, Nagpure Vidyalaya Sq., Bharatwada Road, Nagpur</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-phone-alt mr-3"></i>
-                                    <span>7709997951 | 7038980244</span>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Programs Section -->
+    <section class="section" style="background-color: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="facilities-grid">
+                <!-- Program 1 -->
+                <div class="facility-card">
+                    <img src="images/class11.jpg" alt="Class 11 Science" class="facility-img">
+                    <div class="facility-content">
+                        <h3>Class 11 Science</h3>
+                        <p>Comprehensive coaching for Maharashtra State Board curriculum.</p>
+                        <a href="courses.html" style="color: #1e40af; font-weight: 500;">Learn More →</a>
                     </div>
-                    <div class="md:w-1/2 bg-white p-8 md:p-12 text-gray-800">
-                        <h3 class="text-2xl font-semibold mb-6 text-blue-700">Quick Inquiry</h3>
-                        <form>
-                            <div class="mb-4">
-                                <input type="text" placeholder="Student Name" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div class="mb-4">
-                                <input type="tel" placeholder="Parent's Mobile Number" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div class="mb-4">
-                                <select class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    <option value="">Interested In</option>
-                                    <option value="11">Class 11 Science</option>
-                                    <option value="12">Class 12 Science</option>
-                                    <option value="neet">NEET Coaching</option>
-                                    <option value="library">Library Membership</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-700 text-white py-3 px-4 rounded hover:bg-blue-800 transition duration-300 font-semibold">Get Call Back</button>
-                        </form>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="facility-card">
+                    <img src="images/class12.jpg" alt="Class 12 Science" class="facility-img">
+                    <div class="facility-content">
+                        <h3>Class 12 Science</h3>
+                        <p>Board exam preparation with competitive exam integration.</p>
+                        <a href="courses.html" style="color: #1e40af; font-weight: 500;">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="facility-card">
+                    <img src="images/neet.jpg" alt="NEET Coaching" class="facility-img">
+                    <div class="facility-content">
+                        <h3>NEET Coaching</h3>
+                        <p>Special batches for regular students and repeaters.</p>
+                        <a href="courses.html" style="color: #1e40af; font-weight: 500;">Learn More →</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background-color: #1e40af; color: white; text-align: center;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Ready to Join DNA Academy?</h2>
+            <p style="margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Limited seats available for 2023-24 academic year. Begin your journey to success today.
+            </p>
+            <a href="admission.html" style="display: inline-block; background-color: white; color: #1e40af; 
+               padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;
+               transition: all 0.3s ease;">Apply Now</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <img src="images/logo.png" alt="DNA Academy Logo" class="h-10 mr-3">
-                        <span class="text-xl font-bold">DNA Academy</span>
-                    </div>
-                    <p class="mb-4">Where Science Meets Success</p>
-                    <p>Owned by: Aniket Kahate</p>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DNA Academy</h3>
+                    <p>Where Science Meets Success</p>
+                    <p>No. 6, Bharat Nagar, Nagpure Vidyalaya Sq., Bharatwada Road, Nagpur</p>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="hover:text-blue-300 transition">Home</a></li>
-                        <li><a href="courses.html" class="hover:text-blue-300 transition">Courses</a></li>
-                        <li><a href="library.html" class="hover:text-blue-300 transition">Library</a></li>
-                        <li><a href="admission.html" class="hover:text-blue-300 transition">Admission</a></li>
-                        <li><a href="contact.html" class="hover:text-blue-300 transition">Contact</a></li>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="admission.html">Admission</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Contact Us</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            <span>Bharat Nagar, Nagpure Vidyalaya Sq., Bharatwada Road, Nagpur</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-2"></i>
-                            <span>7709997951</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fab fa-whatsapp mr-2"></i>
-                            <span>7038980244</span>
-                        </li>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-phone-alt"></i> 7709997951</li>
+                        <li><i class="fab fa-whatsapp"></i> 7038980244</li>
+                        <li><i class="fas fa-envelope"></i> contact@dnaacademy.com</li>
                     </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Timings</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="far fa-clock mr-2"></i>
-                            <span>Office: 8AM-12PM & 4PM-8PM</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="far fa-clock mr-2"></i>
-                            <span>Library: 7AM-10PM (Sunday Open)</span>
-                        </li>
-                    </ul>
-                    <h4 class="font-semibold mt-4 mb-2">Follow Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-blue-300 transition"><i class="fab fa-facebook-f text-xl"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300 transition"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300 transition"><i class="fab fa-youtube text-xl"></i></a>
-                    </div>
                 </div>
             </div>
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center">
+            
+            <div class="copyright">
                 <p>&copy; 2023 DNA Academy. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/917038980244" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition" target="_blank">
-        <i class="fab fa-whatsapp text-2xl"></i>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/917038980244" style="position: fixed; bottom: 30px; right: 30px; 
+       background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%;
+       display: flex; align-items: center; justify-content: center; font-size: 30px;
+       box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 99;">
+        <i class="fab fa-whatsapp"></i>
     </a>
-
-    <script src="js/main.js"></script>
-    <script src="js/formHandler.js"></script>
-    <script src="js/animations.js"></script>
 </body>
 </html>
