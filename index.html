@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNA Academy | Premier Coaching Institute in Nagpur</title>
+    <title>DNA Academy - Premier Coaching Institute in Nagpur</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
@@ -37,22 +37,59 @@
             margin: 0 auto;
         }
         
-        /* Logo Section */
-        .logo-container {
+        .header-content {
             display: flex;
-            justify-content: center;
-            padding: 1rem 0;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .logo-img {
-            max-height: 120px;
-            width: auto;
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            display: block;
+            line-height: 1.2;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
         }
         
         /* Hero Section */
         .hero {
             position: relative;
-            height: 60vh;
+            height: 70vh;
             overflow: hidden;
         }
         
@@ -70,7 +107,6 @@
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             color: white;
             padding: 2rem;
-            text-align: center;
         }
         
         .hero-content h1 {
@@ -78,100 +114,108 @@
             margin-bottom: 1rem;
         }
         
-        /* Main Content */
-        .content-section {
+        /* Sections */
+        .section {
             padding: 4rem 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             color: #1e40af;
             font-size: 2rem;
         }
         
-        .about-text {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 1rem;
-        }
-        
         /* Facilities */
-        .facilities {
-            background-color: #f8fafc;
-            padding: 4rem 0;
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
         
-        .facility-list {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1rem;
+        .facility-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
         
-        .facility-item {
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
+        .facility-card:hover {
+            transform: translateY(-10px);
         }
         
-        .facility-icon {
-            background-color: #1e40af;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
+        .facility-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
         
-        /* Contact */
-        .contact-info {
-            text-align: center;
-            margin-top: 2rem;
+        .facility-content {
+            padding: 1.5rem;
         }
         
         /* Footer */
         footer {
             background-color: #1e3a8a;
             color: white;
-            text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0 1.5rem;
         }
         
-        .footer-logo {
-            max-height: 80px;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-methods {
-            display: flex;
-            justify-content: center;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin: 1rem 0;
+            margin-bottom: 2rem;
         }
         
-        .contact-method {
-            display: flex;
-            align-items: center;
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
         }
         
-        .contact-method i {
-            margin-right: 0.5rem;
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2rem;
+            .header-content {
+                flex-direction: column;
+                text-align: center;
             }
             
-            .contact-methods {
-                flex-direction: column;
-                gap: 1rem;
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -179,98 +223,154 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="logo-container">
-                <img src="1042.jpg" alt="DNA Academy Logo" class="logo-img">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="DNA Academy Logo">
+                <div class="logo-text">
+                    <span>DNA</span>
+                    <span>ACADEMY</span>
+                </div>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section with Building Image -->
     <section class="hero">
-        <img src="1041.jpg" alt="DNA Academy Building" class="hero-image">
-        <div class="hero-content">
-            <h1>Welcome to DNA Academy</h1>
+        <img src="images/building.jpg" alt="DNA Academy Building" class="hero-image">
+        <div class="hero-content container">
+            <h1>Where Science Meets Success</h1>
             <p>Premier coaching institute for NEET, JEE and Class 11-12 Science in Nagpur</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="content-section">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-text">
-            <p>DNA Academy is a leading coaching institute in Nagpur, providing quality education for Class 11-12 Science students and competitive exam aspirants. Our experienced faculty and state-of-the-art facilities create the perfect environment for academic success.</p>
-        </div>
-    </section>
-
     <!-- Facilities Section -->
-    <section class="facilities">
+    <section class="section">
         <div class="container">
             <h2 class="section-title">Our Facilities</h2>
-            <div class="facility-list">
-                <div class="facility-item">
-                    <div class="facility-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <div>
+            <div class="facilities-grid">
+                <!-- Facility 1 -->
+                <div class="facility-card">
+                    <img src="images/classroom.jpg" alt="Modern Classroom" class="facility-img
+                    <div class="facility-content">
                         <h3>Modern Classrooms</h3>
-                        <p>Well-equipped classrooms with digital learning tools</p>
+                        <p>Air-conditioned classrooms with digital learning tools and comfortable seating.</p>
                     </div>
                 </div>
                 
-                <div class="facility-item">
-                    <div class="facility-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div>
+                <!-- Facility 2 -->
+                <div class="facility-card">
+                    <img src="images/library.jpg" alt="Study Library" class="facility-img">
+                    <div class="facility-content">
                         <h3>Study Library</h3>
-                        <p>Quiet study environment with reference books</p>
+                        
                     </div>
                 </div>
                 
-                <div class="facility-item">
-                    <div class="facility-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <div>
-                        <h3>Science Laboratories</h3>
-                        <p>Fully equipped labs for practical learning</p>
+                <!-- Facility 3 -->
+                <div class="facility-card">
+                    <img src="images/lab.jpg" alt="Science Lab" class="facility-img">
+                    <div class="facility-content">
+                        <h3>Science Labs</h3>
+                        <p>Well-equipped laboratories for practical learning in Physics, Chemistry and Biology.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="content-section">
-        <h2 class="section-title">Contact Us</h2>
-        <div class="contact-info">
-            <p>No. 6, Bharat Nagar, Nagpure Vidyalaya Sq., Bharatwada Road, Nagpur</p>
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>7709997951</span>
+    <!-- Programs Section -->
+    <section class="section" style="background-color: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="facilities-grid">
+                <!-- Program 1 -->
+                <div class="facility-card">
+                    <img src="images/class11.jpg" alt="Class 11 Science" class="facility-img">
+                    <div class="facility-content">
+                        <h3>Class 11 Science</h3>
+                        <p>Comprehensive coaching for Maharashtra State Board curriculum.</p>
+                        <a href="courses.html" style="color: #1e40af; font-weight: 500;">Learn More →</a>
+                    </div>
                 </div>
-                <div class="contact-method">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>7038980244</span>
+                
+                <!-- Program 2 -->
+                <div class="facility-card">
+                    <img src="images/class12.jpg" alt="Class 12 Science" class="facility-img">
+                    <div class="facility-content">
+                        <h3>Class 12 Science</h3>
+                        <p>Board exam preparation with competitive exam integration.</p>
+                        <a href="courses.html" style="color: #1e40af; font-weight: 500;">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="facility-card">
+                    <img src="images/neet.jpg" alt="NEET Coaching" class="facility-img">
+                    <div class="facility-content">
+                        <h3>NEET Coaching</h3>
+                        <p>Special batches for regular students and repeaters.</p>
+                        <a href="courses.html" style="color: #1e40af; font-weight: 500;">Learn More →</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background-color: #1e40af; color: white; text-align: center;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Ready to Join DNA Academy?</h2>
+            <p style="margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Limited seats available for 2023-24 academic year. Begin your journey to success today.
+            </p>
+            <a href="admission.html" style="display: inline-block; background-color: white; color: #1e40af; 
+               padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;
+               transition: all 0.3s ease;">Apply Now</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <img src="1042.jpg" alt="DNA Academy Logo" class="footer-logo">
-            <p>Where Science Meets Success</p>
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <i class="fas fa-clock"></i>
-                    <span>Office Hours: 8AM-12PM & 4PM-8PM</span>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DNA Academy</h3>
+                    <p>Where Science Meets Success</p>
+                    <p>No. 6, Bharat Nagar, Nagpure Vidyalaya Sq., Bharatwada Road, Nagpur</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-phone-alt"></i> 7709997951</li>
+                        <li><i class="fab fa-whatsapp"></i> 7038980244</li>
+                        <li><i class="fas fa-envelope"></i> contact@dnaacademy.com</li>
+                    </ul>
                 </div>
             </div>
-            <p>&copy; 2023 DNA Academy. All rights reserved.</p>
+            
+            <div class="copyright">
+                <p>&copy; 2023 DNA Academy. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
